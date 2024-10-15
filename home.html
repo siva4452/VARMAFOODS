@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>VARMA FOODS</title>
+        <link rel="icon" type="image/x-icon" href="https://github.com/siva4452/VARMAFOODS/blob/main/images/vf.png?raw=true">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color:black;
+                margin:0px;
+                margin-top:5px;
+                background-image:url("https://github.com/siva4452/VARMAFOODS/blob/main/images/bj.jpg?raw=true");
+                background-position:center;
+                background-size: cover;
+                background-repeat:no-repeat;
+                background-attachment:fixed;
+            }
+            .vf {
+                float:left;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .vfimage{
+                padding:6px 20px;
+                width:80px;
+                height:90px;
+            }
+            .cart {
+                float:right;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .cartimage{
+                padding:25px 60px;
+                width:50px;
+                height:50px;
+            }
+            .orders {
+                float:right;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .ordersimage{
+                padding:25px 60px;
+                width:100px;
+                height:50px;
+            }
+            .title {
+                padding-left:13%;
+                line-height:40px;
+                text-align:center;
+                color:white;
+                font-size:45px;
+                margin:0%;
+            }
+            h1.title::first-line {
+                line-height:55px;
+                font-size:55px;
+                margin-top:5px;
+                margin-bottom:0px;
+                padding-bottom:0px;
+                color:rgb(237, 195, 6);
+            }
+            div.title {
+                margin:0%;
+                padding:0%;
+                line-height:0%;
+            }
+            nav {
+                width: 100%;
+                overflow:hidden;
+                text-align:center;
+                background-color:#ffffff00;
+                margin-top:8px;
+            }
+            nav .navbar {
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;                   
+                text-decoration:none;
+                color:white;
+                padding:3px 37px;
+                text-align:center;
+                float:left;
+                font-size:24px;
+                display:block;
+            }
+            nav .navbar:hover {
+                font-size:26px;
+                font-weight:bold;
+                background-color:rgba(245, 245, 245, 0);
+                color:rgb(237, 195, 6);
+            }
+            nav .navbar.active {
+                font-size:26px;
+                font-weight:bold;
+                background-color:rgba(245, 245, 245, 0);
+                color:rgb(237, 195, 6);
+            }
+            .menu-item {
+                color:white;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin:10px;
+                margin-left:36px;
+            }
+            .menu-item h2 {
+                color:rgb(237, 195, 6);
+                flex:1;
+                margin-left:10px;
+                font-size:22px;
+            }
+            .menu-item .itemname {
+                flex:1;
+                margin-left:250px;
+                font-size:18px;
+            }
+            .QTY{
+                margin-left: 150px;
+                font-size:18px;
+            }
+            .cost{
+                font-size:18px;
+            }
+            .add-to-cart {
+                flex:1;
+                margin-right:35%;
+            }
+            .add-to-cart input {
+                width:90px;
+            }
+            .add-to-cart input[type="submit"] {
+                background-color:#237810;
+                color:white;
+                border:none;
+                cursor:pointer;
+                padding:5px;
+            }
+            button {
+                padding:5px 10px;
+                background-color:#237810;
+                color:white;
+                border:none;
+                cursor:pointer;
+            }
+            .goto_button {
+                text-align:center;
+                margin:6px;
+            }
+            input[type=number]{
+                width: 0.8cm;
+            }
+            .orderimage{
+                width: 3.5cm;
+                height:2.7cm;
+            }
+            .order{
+                background-color: transparent;
+            }
+            .welcome {
+                margin:0px;
+                margin-top:2px;
+                padding-left:6%;
+                font-size:45px;
+                color:rgb(237, 195, 6);
+                font-weight:bold;
+            }
+            .today{
+                margin:35px;
+                padding-left:12%;
+                font-size:40px;
+                color:white;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form action="/home">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="vf"><img class="vfimage" src="https://github.com/siva4452/VARMAFOODS/blob/main/images/vf.png?raw=true" alt="img"></button>
+            </form>
+            <form action="/cart">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="cart"><img class="cartimage" src="https://github.com/siva4452/VARMAFOODS/blob/main/images/cart.png?raw=true" alt="img"></button>
+            </form>
+            <form action="/order">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="orders"><img class="ordersimage" src="https://myorder.ai/assets/image/section2/My_Order_[ICON_Website]-19.png" alt="img"></button>
+            </form>
+        </div>
+        <div class="title">
+            <h1 class="title">VARMA<br>FOODS<br></h1>
+        </div>
+        <nav>
+            <br>
+            <div class="ele">
+                <form action="/starters">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="STARTERS" class="navbar">
+                </form>
+                <form action="/biryanis">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="BIRYANIS" class="navbar">
+                </form>
+                <form action="/gravies">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="GRAVIES" class="navbar">
+                </form>
+                <form action="/frs">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="FRIED RICE" class="navbar">
+                </form>
+                <form action="/breads">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="BREADS" class="navbar">
+                </form>
+                <form action="/rbs">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="RICE BOWLS" class="navbar">
+                </form>
+                <form action="/soups">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="SOUPS"  class="navbar">
+                </form>
+                <form action="/contact">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="CONTACT" class="navbar">
+                </form>
+            </div>
+        </nav>
+        <br>
+        <br>
+        <br><br>
+        <p class="welcome">WELCOME TO OUR RESTAURENT</p>
+        <br>
+        <p class="today">Our Special:</p>
+        <div class="menu-items">
+            <div class="menu-item">
+                <p class="itemname">VARMA SPECIAL BIRYANI</p>
+                <p class="cost">300/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Varma_Special_Biryani" name="item">
+                        <label for="VSB" class="QTY">Qty:</label>
+                        <input type="number" id="VSBx" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <center>
+            <form action="/cart">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="order" ><img class="orderimage" src="https://github.com/siva4452/VARMAFOODS/blob/main/images/5862ee767d90850fc3ce2909.png?raw=true" alt="img"></button>
+            </form>
+        </center>
+    </body>
+</html>

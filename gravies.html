@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>GRAVIES</title>
+        <link rel="icon" type="image/x-icon" href="https://github.com/siva4452/VARMAFOODS/blob/main/images/vf.png?raw=true">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color:black;
+                margin:0px;
+                margin-top:5px;
+                background-image:url("https://github.com/siva4452/VARMAFOODS/blob/main/images/bj.jpg?raw=true");
+                background-position:center;
+                background-size: cover;
+                background-repeat:no-repeat;
+                background-attachment:fixed;
+            }
+            .vf {
+                float:left;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .vfimage{
+                padding:6px 20px;
+                width:80px;
+                height:90px;
+            }
+            .cart {
+                float:right;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .cartimage{
+                padding:25px 60px;
+                width:50px;
+                height:50px;
+            }
+            .orders {
+                float:right;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .ordersimage{
+                padding:25px 60px;
+                width:100px;
+                height:50px;
+            }
+            .title {
+                padding-left:13%;
+                line-height:40px;
+                text-align:center;
+                color:white;
+                font-size:45px;
+                margin:0%;
+            }
+            h1.title::first-line {
+                line-height:55px;
+                font-size:55px;
+                margin-top:5px;
+                margin-bottom:0px;
+                padding-bottom:0px;
+                color:rgb(237, 195, 6);
+            }
+            div.title {
+                margin:0%;
+                padding:0%;
+                line-height:0%;
+            }
+            nav {
+                width: 100%;
+                overflow:hidden;
+                text-align:center;
+                background-color:#ffffff00;
+                margin-top:8px;
+            }
+            nav .navbar {
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;                   
+                text-decoration:none;
+                color:white;
+                padding:3px 37px;
+                text-align:center;
+                float:left;
+                font-size:24px;
+                display:block;
+            }
+            nav .navbar:hover {
+                font-size:26px;
+                font-weight:bold;
+                background-color:rgba(245, 245, 245, 0);
+                color:rgb(237, 195, 6);
+            }
+            nav .navbar.active {
+                font-size:26px;
+                font-weight:bold;
+                background-color:rgba(245, 245, 245, 0);
+                color:rgb(237, 195, 6);
+            }
+            .menu-item {
+                color:white;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin:10px;
+                margin-left:36px;
+            }
+            .menu-item h2 {
+                color:rgb(237, 195, 6);
+                flex:1;
+                margin-left:10px;
+                font-size:22px;
+            }
+            .menu-item p {
+                flex:1;
+                margin-left:40px;
+                font-size:18px;
+            }
+            .add-to-cart {
+                flex:1;
+                margin-right:35%;
+            }
+            .add-to-cart input {
+                width:90px;
+            }
+            .add-to-cart input[type="submit"] {
+                background-color:#237810;
+                color:white;
+                border:none;
+                cursor:pointer;
+                padding:5px;
+            }
+            button {
+                padding:5px 10px;
+                background-color:#237810;
+                color:white;
+                border:none;
+                cursor:pointer;
+            }
+            .goto_button {
+                text-align:center;
+                margin:6px;
+            }
+            input[type=number]{
+                width: 0.8cm;
+            }
+            .orderimage{
+                width: 3.5cm;
+                height:2.7cm;
+            }
+            .order{
+                background-color: transparent;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form action="/home">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="vf"><img class="vfimage" src="https://github.com/siva4452/VARMAFOODS/blob/main/images/vf.png?raw=true" alt="img"></button>
+            </form>
+            <form action="/cart">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="cart"><img class="cartimage" src="https://github.com/siva4452/VARMAFOODS/blob/main/images/cart.png?raw=true" alt="img"></button>
+            </form>
+            <form action="/order">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="orders"><img class="ordersimage" src="https://myorder.ai/assets/image/section2/My_Order_[ICON_Website]-19.png" alt="img"></button>
+            </form>
+        </div>
+        <div class="title">
+            <h1 class="title">VARMA<br>FOODS<br></h1>
+        </div>
+        <nav>
+            <br>
+            <div class="ele">
+                <form action="/starters">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="STARTERS" class="navbar">
+                </form>
+                <form action="/biryanis">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="BIRYANIS" class="navbar">
+                </form>
+                <form action="/gravies">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="GRAVIES" class="navbar active">
+                </form>
+                <form action="/frs">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="FRIED RICE" class="navbar">
+                </form>
+                <form action="/breads">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="BREADS" class="navbar">
+                </form>
+                <form action="/rbs">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="RICE BOWLS" class="navbar">
+                </form>
+                <form action="/soups">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="SOUPS"  class="navbar">
+                </form>
+                <form action="/contact">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="CONTACT" class="navbar">
+                </form>
+            </div>
+        </nav>
+        <br>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h2>VEG GRAVIES</h2>
+            </div>
+            <div class="menu-item">
+                <p>Dal Fry</p>
+                <p class="cost">100/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Dal_Fry" name="item">
+                        <label for="df">Qty:</label>
+                        <input type="number" id="df" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Dal Tadka</p>
+                <p class="cost">120/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Dal_Tadka" name="item">
+                        <label for="dt">Qty:</label>
+                        <input type="number" id="dt" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Tomato Fry</p>
+                <p class="cost">120/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Tomato_Fry" name="item">
+                        <label for="tf">Qty:</label>
+                        <input type="number" id="tf" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Veg Kurma</p>
+                <p class="cost">220/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Veg_Kurma" name="item">
+                        <label for="vk">Qty:</label>
+                        <input type="number" id="vk" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Baby Corn Masala</p>
+                <p class="cost">220/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Baby_Corn_Masala" name="item">
+                        <label for="bcm">Qty:</label>
+                        <input type="number" id="bcm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Paneer Masala</p>
+                <p class="cost">220/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Paneer_Masala" name="item">
+                        <label for="pm">Qty:</label>
+                        <input type="number" id="pm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Green Piece Malasa</p>
+                <p class="cost">220/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Green_Piece_Masala" name="item">
+                        <label for="gpm">Qty:</label>
+                        <input type="number" id="gpm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Mashroom Masala</p>
+                <p class="cost">240/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mashroom_Masala" name="item">
+                        <label for="mm">Qty:</label>
+                        <input type="number" id="mm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Methi Chaman</p>
+                <p class="cost">250/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Methi_Chaman" name="item">
+                        <label for="mc">Qty:</label>
+                        <input type="number" id="mc" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Panner Butter Masala</p>
+                <p class="cost">250/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Panner_Butter_Masala" name="item">
+                        <label for="pbm">Qty:</label>
+                        <input type="number" id="pbm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Kadai Panner</p>
+                <p class="cost">250/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Kadai_Panner" name="item">
+                        <label for="kp">Qty:</label>
+                        <input type="number" id="kp" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Panner Shahi Kurma</p>
+                <p class="cost">260/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Panner_Shahi_Kurma" name="item">
+                        <label for="psk">Qty:</label>
+                        <input type="number" id="psk" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Cashew Panner</p>
+                <p class="cost">260/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Cashew_Panner" name="item">
+                        <label for="cp">Qty:</label>
+                        <input type="number" id="cp" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Hyderabad Panner</p>
+                <p class="cost">260/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Hyderabad_Panner" name="item">
+                        <label for="hp">Qty:</label>
+                        <input type="number" id="hp" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Palak Panner</p>
+                <p class="cost">250/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Palak_Panner" name="item">
+                        <label for="pp">Qty:</label>
+                        <input type="number" id="pp" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Malai Kopta</p>
+                <p class="cost">260/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Malai_Kopta" name="item">
+                        <label for="mk">Qty:</label>
+                        <input type="number" id="mk" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Cashew Tomato</p>
+                <p class="cost">270/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Cashew_Tomato" name="item">
+                        <label for="ct">Qty:</label>
+                        <input type="number" id="ct" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Mashroom Kadai</p>
+                <p class="cost">280/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mashroom_Kadai" name="item">
+                        <label for="mk">Qty:</label>
+                        <input type="number" id="mk" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Cashew Nut Masala</p>
+                <p class="cost">280/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Cashew_Nut_Masala" name="item">
+                        <label for="cnm">Qty:</label>
+                        <input type="number" id="cnm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div class="menu-item">
+                <h2>NON-VEG GRAVIES</h2>
+            </div>
+            <div class="menu-item">
+                <h2>EGG</h2>
+            </div>
+            <div class="menu-item">
+                <p>Egg Curry</p>
+                <p class="cost">140/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Egg_Curry" name="item">
+                        <label for="ec">Qty:</label>
+                        <input type="number" id="ec" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Egg Masala</p>
+                <p class="cost">150/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Egg_Masala" name="item">
+                        <label for="em">Qty:</label>
+                        <input type="number" id="em" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <h2>CHICKEN</h2>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Curry</p>
+                <p class="cost">220/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Curry" name="item">
+                        <label for="cc">Qty:</label>
+                        <input type="number" id="cc" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Masala</p>
+                <p class="cost">230/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Masala" name="item">
+                        <label for="cm">Qty:</label>
+                        <input type="number" id="cm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Butter Chicken</p>
+                <p class="cost">250/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Butter_Chicken" name="item">
+                        <label for="bc">Qty:</label>
+                        <input type="number" id="bc" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Kurma</p>
+                <p class="cost">250/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Kurma" name="item">
+                        <label for="ck">Qty:</label>
+                        <input type="number" id="ck" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Hyderabad</p>
+                <p class="cost">260/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Hyderabad" name="item">
+                        <label for="ch">Qty:</label>
+                        <input type="number" id="ch" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Kadai Chicken</p>
+                <p class="cost">260/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Kadai_Chicken" name="item">
+                        <label for="kc">Qty:</label>
+                        <input type="number" id="kc" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Panjabi Chicken</p>
+                <p class="cost">260/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Panjab_Chicken" name="item">
+                        <label for="pc">Qty:</label>
+                        <input type="number" id="pc" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Methi Chicken</p>
+                <p class="cost">260/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Methi_Chicken" name="item">
+                        <label for="mc">Qty:</label>
+                        <input type="number" id="mc" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Shai Kurma</p>
+                <p class="cost">280/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Shai_Kurma" name="item">
+                        <label for="csk">Qty:</label>
+                        <input type="number" id="csk" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Tikka Masala</p>
+                <p class="cost">280/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Tikka_Masala" name="item">
+                        <label for="ctm">Qty:</label>
+                        <input type="number" id="ctm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Kaju Chicken Curry</p>
+                <p class="cost">280/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Kaju_Chicken_Curry" name="item">
+                        <label for="kcc">Qty:</label>
+                        <input type="number" id="kcc" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Afghani</p>
+                <p class="cost">280/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Afghani" name="item">
+                        <label for="ca">Qty:</label>
+                        <input type="number" id="ca" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Mughalai</p>
+                <p class="cost">300/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Mughalai" name="item">
+                        <label for="cm">Qty:</label>
+                        <input type="number" id="cm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <h2>SPCL:-</h2>
+            </div>
+            <div class="menu-item">
+                <p>VF Kolla Puri Chicken</p>
+                <p class="cost">280/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="VF_Kolla_Puri_Chicken" name="item">
+                        <label for="vfkpc">Qty:</label>
+                        <input type="number" id="vfkpc" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <h2>MUTTON</h2>
+            </div>
+            <div class="menu-item">
+                <p>Mutton Curry</p>
+                <p class="cost">350/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mutton_Curry" name="item">
+                        <label for="mc">Qty:</label>
+                        <input type="number" id="mc" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Mutton Masala</p>
+                <p class="cost">350/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mutton_Masala" name="item">
+                        <label for="mm">Qty:</label>
+                        <input type="number" id="mm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Mutton Mughalai</p>
+                <p class="cost">380/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mutton_Mughalai" name="item">
+                        <label for="mm">Qty:</label>
+                        <input type="number" id="mm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <h2>PRAWNS</h2>
+            </div>
+            <div class="menu-item">
+                <p>Prawns Curry</p>
+                <p class="cost">300/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Prawns_Curry" name="item">
+                        <label for="pc">Qty:</label>
+                        <input type="number" id="pc" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Prawns Masala</p>
+                <p class="cost">320/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Prawns_Masala" name="item">
+                        <label for="pm">Qty:</label>
+                        <input type="number" id="pm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <center>
+            <form action="/cart">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="order" ><img class="orderimage" src="https://github.com/siva4452/VARMAFOODS/blob/main/images/5862ee767d90850fc3ce2909.png?raw=true" alt="img"></button>
+            </form>
+        </center>
+        <br>
+    </body>
+</html>

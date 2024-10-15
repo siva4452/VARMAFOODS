@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>FRIED RICE</title>
+        <link rel="icon" type="image/x-icon" href="https://github.com/siva4452/VARMAFOODS/blob/main/images/vf.png?raw=true">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color:black;
+                margin:0px;
+                margin-top:5px;
+                background-image:url("https://github.com/siva4452/VARMAFOODS/blob/main/images/bj.jpg?raw=true");
+                background-position:center;
+                background-size: cover;
+                background-repeat:no-repeat;
+                background-attachment:fixed;
+            }
+            .vf {
+                float:left;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .vfimage{
+                padding:6px 20px;
+                width:80px;
+                height:90px;
+            }
+            .cart {
+                float:right;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .cartimage{
+                padding:25px 60px;
+                width:50px;
+                height:50px;
+            }
+            .orders {
+                float:right;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .ordersimage{
+                padding:25px 60px;
+                width:100px;
+                height:50px;
+            }
+            .title {
+                padding-left:13%;
+                line-height:40px;
+                text-align:center;
+                color:white;
+                font-size:45px;
+                margin:0%;
+            }
+            h1.title::first-line {
+                line-height:55px;
+                font-size:55px;
+                margin-top:5px;
+                margin-bottom:0px;
+                padding-bottom:0px;
+                color:rgb(237, 195, 6);
+            }
+            div.title {
+                margin:0%;
+                padding:0%;
+                line-height:0%;
+            }
+            nav {
+                width: 100%;
+                overflow:hidden;
+                text-align:center;
+                background-color:#ffffff00;
+                margin-top:8px;
+            }
+            nav .navbar {
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;                   
+                text-decoration:none;
+                color:white;
+                padding:3px 37px;
+                text-align:center;
+                float:left;
+                font-size:24px;
+                display:block;
+            }
+            nav .navbar:hover {
+                font-size:26px;
+                font-weight:bold;
+                background-color:rgba(245, 245, 245, 0);
+                color:rgb(237, 195, 6);
+            }
+            nav .navbar.active {
+                font-size:26px;
+                font-weight:bold;
+                background-color:rgba(245, 245, 245, 0);
+                color:rgb(237, 195, 6);
+            }
+            .menu-item {
+                color:white;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin:10px;
+                margin-left:36px;
+            }
+            .menu-item h2 {
+                color:rgb(237, 195, 6);
+                flex:1;
+                margin-left:10px;
+                font-size:22px;
+            }
+            .menu-item p {
+                flex:1;
+                margin-left:40px;
+                font-size:18px;
+            }
+            .add-to-cart {
+                flex:1;
+                margin-right:35%;
+            }
+            .add-to-cart input {
+                width:90px;
+            }
+            .add-to-cart input[type="submit"] {
+                background-color:#237810;
+                color:white;
+                border:none;
+                cursor:pointer;
+                padding:5px;
+            }
+            button {
+                padding:5px 10px;
+                background-color:#237810;
+                color:white;
+                border:none;
+                cursor:pointer;
+            }
+            .goto_button {
+                text-align:center;
+                margin:6px;
+            }
+            input[type=number]{
+                width: 0.8cm;
+            }
+            .orderimage{
+                width: 3.5cm;
+                height:2.7cm;
+            }
+            .order{
+                background-color: transparent;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form action="/home">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="vf"><img class="vfimage" src="https://github.com/siva4452/VARMAFOODS/blob/main/images/vf.png?raw=true" alt="img"></button>
+            </form>
+            <form action="/cart">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="cart"><img class="cartimage" src="https://github.com/siva4452/VARMAFOODS/blob/main/images/cart.png?raw=true" alt="img"></button>
+            </form>
+            <form action="/order">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="orders"><img class="ordersimage" src="https://myorder.ai/assets/image/section2/My_Order_[ICON_Website]-19.png" alt="img"></button>
+            </form>
+        </div>
+        <div class="title">
+            <h1 class="title">VARMA<br>FOODS<br></h1>
+        </div>
+        <nav>
+            <br>
+            <div class="ele">
+                <form action="/starters">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="STARTERS" class="navbar">
+                </form>
+                <form action="/biryanis">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="BIRYANIS" class="navbar">
+                </form>
+                <form action="/gravies">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="GRAVIES" class="navbar">
+                </form>
+                <form action="/frs">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="FRIED RICE" class="navbar active">
+                </form>
+                <form action="/breads">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="BREADS" class="navbar">
+                </form>
+                <form action="/rbs">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="RICE BOWLS" class="navbar">
+                </form>
+                <form action="/soups">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="SOUPS"  class="navbar">
+                </form>
+                <form action="/contact">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="CONTACT" class="navbar">
+                </form>
+            </div>
+        </nav>
+        <br>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h2>VEG FRIED RICE</h2>
+            </div>
+            <div class="menu-item">
+                <p>Veg Fried Rice</p>
+                <p class="cost">180/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Veg_Fried_Rice" name="item">
+                        <label for="vfr">Qty:</label>
+                        <input type="number" id="vfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Jeera Rice</p>
+                <p class="cost">180/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Jeera_Rice" name="item">
+                        <label for="jr">Qty:</label>
+                        <input type="number" id="jr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Paneer Fried Rice</p>
+                <p class="cost">230/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Paneer_Fried_Rice" name="item">
+                        <label for="pfr">Qty:</label>
+                        <input type="number" id="pfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Ghee Rice</p>
+                <p class="cost">230/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Ghee_Rice" name="item">
+                        <label for="gr">Qty:</label>
+                        <input type="number" id="gr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Mushroom Fried Rice</p>
+                <p class="cost">230/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mushroom_Fried_Rice" name="item">
+                        <label for="mfr">Qty:</label>
+                        <input type="number" id="mfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Schezwan Veg Fried Rice</p>
+                <p class="cost">250/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Schezwan_Veg_Fried_Rice" name="item">
+                        <label for="svfr">Qty:</label>
+                        <input type="number" id="svfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>SP Veg Fried Rice</p>
+                <p class="cost">250/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="SP_Veg_Fried_Rice" name="item">
+                        <label for="spvfr">Qty:</label>
+                        <input type="number" id="spvfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Cashew Paneer Fried Rice</p>
+                <p class="cost">250/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Cashew_Paneer_Fried_Rice" name="item">
+                        <label for="cpfr">Qty:</label>
+                        <input type="number" id="cpfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Cashew Fried Rice</p>
+                <p class="cost">280/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Cashew_Fried_Rice" name="item">
+                        <label for="cfr">Qty:</label>
+                        <input type="number" id="cfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Mixed Fried Rice</p>
+                <p class="cost">280/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mixed_Fried_Rice" name="item">
+                        <label for="mifr">Qty:</label>
+                        <input type="number" id="mifr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div class="menu-item">
+                <h2>NON-VEG FRIED RICE</h2>
+            </div>
+            <div class="menu-item">
+                <p>Egg Fried Rice</p>
+                <p class="cost">150/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Egg_Fried_Rice" name="item">
+                        <label for="efr">Qty:</label>
+                        <input type="number" id="efr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Fried Rice</p>
+                <p class="cost">200/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Fried_Rice" name="item">
+                        <label for="cfs">Qty:</label>
+                        <input type="number" id="cfs" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>SP Egg Fried Rice</p>
+                <p class="cost">200/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="SP_Egg_Fried_Rice" name="item">
+                        <label for="sefr">Qty:</label>
+                        <input type="number" id="sefr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>SP Chicken Fried Rice</p>
+                <p class="cost">250/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="SP_Chicken_Fried_Rice" name="item">
+                        <label for="scfr">Qty:</label>
+                        <input type="number" id="scfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Roast Fried Rice</p>
+                <p class="cost">250/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Roast_Fried_Rice" name="item">
+                        <label for="rfr">Qty:</label>
+                        <input type="number" id="rfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Schezwan Chicken Fried Rice</p>
+                <p class="cost">270/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Schezwan_Chicken_Fried_Rice" name="item">
+                        <label for="schfr">Qty:</label>
+                        <input type="number" id="schfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Prawns Fried Rice</p>
+                <p class="cost">300/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Prawns_Fried_Rice" name="item">
+                        <label for="pfr">Qty:</label>
+                        <input type="number" id="pfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>RY Prawns Fried Rice</p>
+                <p class="cost">320/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="RY_Prawns_Fried_Rice" name="item">
+                        <label for="rpfr">Qty:</label>
+                        <input type="number" id="rpfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>SP Prawns Fried Rice</p>
+                <p class="cost">350/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="SP_Prawns_Fried_Rice" name="item">
+                        <label for="sppfr">Qty:</label>
+                        <input type="number" id="sppfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Mutton Fried Rice</p>
+                <p class="cost">350/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mutton_Fried_Rice" name="item">
+                        <label for="mtfr">Qty:</label>
+                        <input type="number" id="mtfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Mixed Fried Rice</p>
+                <p class="cost">380/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mixed_Fried_Rice" name="item">
+                        <label for="mdfr">Qty:</label>
+                        <input type="number" id="mdfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Schezwan Mutton Fried Rice</p>
+                <p class="cost">400/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Schezwan_Mutton_Fried_Rice" name="item">
+                        <label for="smfr">Qty:</label>
+                        <input type="number" id="smfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>SP Mutton Fried Rice</p>
+                <p class="cost">420/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="SP_Mutton_Fried_Rice" name="item">
+                        <label for="smtfr">Qty:</label>
+                        <input type="number" id="smtfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Fry Mutton Fried Rice</p>
+                <p class="cost">450/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Fry_Mutton_Fried_Rice" name="item">
+                        <label for="fmfr">Qty:</label>
+                        <input type="number" id="fmfr" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <center>
+            <form action="/cart">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="order" ><img class="orderimage" src="https://github.com/siva4452/VARMAFOODS/blob/main/images/5862ee767d90850fc3ce2909.png?raw=true" alt="img"></button>
+            </form>
+        </center>
+        <br>
+    </body>
+</html>

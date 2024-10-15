@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CART</title>
+        <link rel="icon" type="image/x-icon" href="https://github.com/siva4452/VARMAFOODS/blob/main/images/vf.png?raw=true">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color:black;
+                margin:0px;
+                margin-top:5px;
+                background-image:url("https://github.com/siva4452/VARMAFOODS/blob/main/images/bj.jpg?raw=true");
+                background-position:center;
+                background-size: cover;
+                background-repeat:no-repeat;
+                background-attachment:fixed;
+            }
+            .vf {
+                float:left;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .vfimage{
+                padding:6px 20px;
+                width:80px;
+                height:90px;
+            }
+            .cart {
+                float:right;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .cartimage{
+                padding:25px 60px;
+                width:50px;
+                height:50px;
+            }
+            .orders {
+                float:right;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .ordersimage{
+                padding:25px 60px;
+                width:100px;
+                height:50px;
+            }
+            .title {
+                padding-left:13%;
+                line-height:40px;
+                text-align:center;
+                color:white;
+                font-size:45px;
+                margin:0%;
+            }
+            h1.title::first-line {
+                line-height:55px;
+                font-size:55px;
+                margin-top:5px;
+                margin-bottom:0px;
+                padding-bottom:0px;
+                color:rgb(237, 195, 6);
+            }
+            div.title {
+                margin:0%;
+                padding:0%;
+                line-height:0%;
+            }
+            nav {
+                width: 100%;
+                overflow:hidden;
+                text-align:center;
+                background-color:#ffffff00;
+                margin-top:8px;
+            }
+            nav .navbar {
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;                   
+                text-decoration:none;
+                color:white;
+                padding:3px 37px;
+                text-align:center;
+                float:left;
+                font-size:24px;
+                display:block;
+            }
+            nav .navbar:hover {
+                font-size:26px;
+                font-weight:bold;
+                background-color:rgba(245, 245, 245, 0);
+                color:rgb(237, 195, 6);
+            }
+            nav .navbar.active {
+                font-size:26px;
+                font-weight:bold;
+                background-color:rgba(245, 245, 245, 0);
+                color:rgb(237, 195, 6);
+            }
+            .menu-item {
+                color:white;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin:10px;
+                margin-left:36px;
+            }
+            .menu-item h2 {
+                color:rgb(237, 195, 6);
+                flex:1;
+                margin-left:10px;
+                font-size:22px;
+            }
+            .menu-item p {
+                flex:1;
+                margin-left:40px;
+                font-size:18px;
+            }
+            .add-to-cart {
+                flex:1;
+                margin-right:35%;
+            }
+            .add-to-cart input {
+                width:90px;
+            }
+            .add-to-cart input[type="submit"] {
+                background-color:#237810;
+                color:white;
+                border:none;
+                cursor:pointer;
+                padding:5px;
+            }
+            button {
+                padding:5px 10px;
+                background-color:#237810;
+                color:white;
+                border:none;
+                cursor:pointer;
+            }
+            .goto_button {
+                text-align:center;
+                margin:6px;
+            }
+            input[type=number]{
+                width: 0.8cm;
+            }
+            td{
+                border: 2px solid yellow;
+                border-radius: 10px;
+                padding: 0.75cm;
+            }
+            table{
+                border: 2px solid yellow;
+                border-spacing: 1cm;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="title">
+            <h1 class="title">VARMA<br>FOODS<br></h1>
+        </div>
+        <br>
+        <div class="menu-items">
+            <div class="menu-item">
+                <div class="add-to-cart">
+                        <center>
+                        <form action="/orderdelivered">    
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="hidden" value="'+doc.data().user+'" name="user">
+                                    <h2>'+indoc.data().item+'</h2>
+                                    <p>Price :'+prices[indoc.data().item]+'</p>
+                                    
+                                </td>
+                            </tr>
+                            <center>
+                                <h2>Total price:'+total+'/- </h2> 
+                            </center> 
+                        </table>
+                        <input type="submit" value="Order delivered">
+                    </form>
+                    <br>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <br>
+    </body>
+</html>

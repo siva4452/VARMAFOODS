@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>BIRYANIS</title>
+        <link rel="icon" type="image/x-icon" href="https://github.com/siva4452/VARMAFOODS/blob/main/images/vf.png?raw=true">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color:black;
+                margin:0px;
+                margin-top:5px;
+                background-image:url("https://github.com/siva4452/VARMAFOODS/blob/main/images/bj.jpg?raw=true");
+                background-position:center;
+                background-size: cover;
+                background-repeat:no-repeat;
+                background-attachment:fixed;
+            }
+            .vf {
+                float:left;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .vfimage{
+                padding:6px 20px;
+                width:80px;
+                height:90px;
+            }
+            .cart {
+                float:right;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .cartimage{
+                padding:25px 60px;
+                width:50px;
+                height:50px;
+            }
+            .orders {
+                float:right;
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+            .ordersimage{
+                padding:25px 60px;
+                width:100px;
+                height:50px;
+            }
+            .title {
+                padding-left:13%;
+                line-height:40px;
+                text-align:center;
+                color:white;
+                font-size:45px;
+                margin:0%;
+            }
+            h1.title::first-line {
+                line-height:55px;
+                font-size:55px;
+                margin-top:5px;
+                margin-bottom:0px;
+                padding-bottom:0px;
+                color:rgb(237, 195, 6);
+            }
+            div.title {
+                margin:0%;
+                padding:0%;
+                line-height:0%;
+            }
+            nav {
+                width: 100%;
+                overflow:hidden;
+                text-align:center;
+                background-color:#ffffff00;
+                margin-top:8px;
+            }
+            nav .navbar {
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;                   
+                text-decoration:none;
+                color:white;
+                padding:3px 37px;
+                text-align:center;
+                float:left;
+                font-size:24px;
+                display:block;
+            }
+            nav .navbar:hover {
+                font-size:26px;
+                font-weight:bold;
+                background-color:rgba(245, 245, 245, 0);
+                color:rgb(237, 195, 6);
+            }
+            nav .navbar.active {
+                font-size:26px;
+                font-weight:bold;
+                background-color:rgba(245, 245, 245, 0);
+                color:rgb(237, 195, 6);
+            }
+            .menu-item {
+                color:white;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin:10px;
+                margin-left:36px;
+            }
+            .menu-item h2 {
+                color:rgb(237, 195, 6);
+                flex:1;
+                margin-left:10px;
+                font-size:22px;
+            }
+            .menu-item p {
+                flex:1;
+                margin-left:40px;
+                font-size:18px;
+            }
+            .add-to-cart {
+                flex:1;
+                margin-right:35%;
+            }
+            .add-to-cart input {
+                width:90px;
+            }
+            .add-to-cart input[type="submit"] {
+                background-color:#237810;
+                color:white;
+                border:none;
+                cursor:pointer;
+                padding:5px;
+            }
+            button {
+                padding:5px 10px;
+                background-color:#237810;
+                color:white;
+                border:none;
+                cursor:pointer;
+            }
+            .goto_button {
+                text-align:center;
+                margin:6px;
+            }
+            input[type=number]{
+                width: 0.8cm;
+            }
+            .orderimage{
+                width: 3.5cm;
+                height:2.7cm;
+            }
+            .order{
+                background-color: transparent;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form action="/home">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="vf"><img class="vfimage" src="https://github.com/siva4452/VARMAFOODS/blob/main/images/vf.png?raw=true" alt="img"></button>
+            </form>
+            <form action="/cart">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="cart"><img class="cartimage" src="https://github.com/siva4452/VARMAFOODS/blob/main/images/cart.png?raw=true" alt="img"></button>
+            </form>
+            <form action="/order">
+                <input type="hidden" value="'+user+'" name="user">
+                <button type="submit" class="orders"><img class="ordersimage" src="https://myorder.ai/assets/image/section2/My_Order_[ICON_Website]-19.png" alt="img"></button>
+            </form>
+        </div>
+        <div class="title">
+            <h1 class="title">VARMA<br>FOODS<br></h1>
+        </div>
+        <nav>
+            <br>
+            <div class="ele">
+                <form action="/starters">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="STARTERS" class="navbar">
+                </form>
+                <form action="/biryanis">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="BIRYANIS" class="navbar active">
+                </form>
+                <form action="/gravies">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="GRAVIES" class="navbar">
+                </form>
+                <form action="/frs">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="FRIED RICE" class="navbar">
+                </form>
+                <form action="/breads">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="BREADS" class="navbar">
+                </form>
+                <form action="/rbs">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="RICE BOWLS" class="navbar">
+                </form>
+                <form action="/soups">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="SOUPS"  class="navbar">
+                </form>
+                <form action="/contact">
+                    <input type="hidden" value="'+user+'" name="user">
+                    <input type="submit" value="CONTACT" class="navbar">
+                </form>
+            </div>
+        </nav>
+        <br>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h2>VEG BIRYANIS</h2>
+            </div>
+            <div class="menu-item">
+                <p>Mushroom Biryani</p>
+                <p class="cost">230/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mushroom_Biryani" name="item">
+                        <label for="mb">Qty:</label>
+                        <input type="number" id="mb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Paneer Biryani</p>
+                <p class="cost">230/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Paneer_Biryani" name="item">
+                        <label for="pb">Qty:</label>
+                        <input type="number" id="pb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Mixed Veg Biryani</p>
+                <p class="cost">240/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mixed_Veg_Biryani" name="item">
+                        <label for="mix-veg">Qty:</label>
+                        <input type="number" id="mix-veg" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Cashew Paneer Biryani</p>
+                <p class="cost">300/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Cashew_Paneer_Biryani" name="item">
+                        <label for="cpb">Qty:</label>
+                        <input type="number" id="cpb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Cashew Biryani</p>
+                <p class="cost">300/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Cashew_Biryani" name="item">
+                        <label for="cb">Qty:</label>
+                        <input type="number" id="cb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div class="menu-item">
+                <h2>NON-VEG BIRYANIS</h2>
+            </div>
+            <div class="menu-item">
+                <h2>CHICKEN BIRYANIS</h2>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Dum Biryani ( Half )</p>
+                <p class="cost">150/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Dum_Half" name="item">
+                        <label for="CB-DH">Qty:</label>
+                        <input type="number" id="CB-DH" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Fry Piece Biryani ( Half )</p>
+                <p class="cost">150/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Fry_Piece_Half" name="item">
+                        <label for="CB-FPH">Qty:</label>
+                        <input type="number" id="CB-FPH" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Dum Biryani ( Full )</p>
+                <p class="cost">280/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Dum_Full" name="item">
+                        <label for="CB-DF">Qty:</label>
+                        <input type="number" id="CB-DF" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Fry Piece Biryani ( Full )</p>
+                <p class="cost">280/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Fry_Piece_Full" name="item">
+                        <label for="CB-FPF">Qty:</label>
+                        <input type="number" id="CB-FPF" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>SP Chicken Biryani</p>
+                <p class="cost">300/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="SP_Chicken_Biryani" name="item">
+                        <label for="SP-CB">Qty:</label>
+                        <input type="number" id="SP-CB" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Kabab Biryani</p>
+                <p class="cost">300/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Kabab_Biryani" name="item">
+                        <label for="kb">Qty:</label>
+                        <input type="number" id="kb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Roast Biryani ( Full )</p>
+                <p class="cost">300/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Roast_Bhiryani" name="item">
+                        <label for="CB-r">Qty:</label>
+                        <input type="number" id="CB-r" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Mughalai Biryani</p>
+                <p class="cost">350/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Mughalai_Bhiryani" name="item">
+                        <label for="cm">Qty:</label>
+                        <input type="number" id="cm" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Panjabi Biryani</p>
+                <p class="cost">350/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Panjabi_Biryani" name="item">
+                        <label for="cpb">Qty:</label>
+                        <input type="number" id="cpb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Afghani Biryani</p>
+                <p class="cost">380/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Afghani_Biryani" name="item">
+                        <label for="cab">Qty:</label>
+                        <input type="number" id="cab" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Chicken Dilkush Biryani</p>
+                <p class="cost">400/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Chicken_Dilkush_Biryani" name="item">
+                        <label for="cdb">Qty:</label>
+                        <input type="number" id="cdb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <h2>MUTTON BIRYANIS</h2>
+            </div>
+            <div class="menu-item">
+                <p>Mutton Dum Biryani ( Half )</p>
+                <p class="cost">250/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mutton_Dum_Biryani_Half" name="item">
+                        <label for="mdbH">Qty:</label>
+                        <input type="number" id="mdbH" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Mutton Dum Biryani ( Full )</p>
+                <p class="cost">450/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mutton_Dum_Biryani_Full" name="item">
+                        <label for="mdbF">Qty:</label>
+                        <input type="number" id="mdbF" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Mutton Mughalai Biryani</p>
+                <p class="cost">480/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mutton_Mughalai_Biryani" name="item">
+                        <label for="mmb">Qty:</label>
+                        <input type="number" id="mmb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>SP Mutton Biryani</p>
+                <p class="cost">500/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="SP_Mutton_Biryani" name="item">
+                        <label for="SP-mb">Qty:</label>
+                        <input type="number" id="SP-mb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <h2>PRAWNS BIRYANIS</h2>
+            </div>
+            <div class="menu-item">
+                <p>Prawns Fry Biryani</p>
+                <p class="cost">330/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Prawns_Fry_Biryani" name="item">
+                        <label for="pfb">Qty:</label>
+                        <input type="number" id="pfb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>SP Prawns Biryani</p>
+                <p class="cost">350/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="SP_Prawns_Biryani" name="item">
+                        <label for="SP-pb">Qty:</label>
+                        <input type="number" id="SP-pb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div class="menu-item">
+                <h2>Mixed Biryani</h2>
+                <p class="cost">400/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Mixed_Biryani" name="item">
+                        <label for="MixedB">Qty:</label>
+                        <input type="number" id="MixedB" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div class="menu-item">
+                <h2>EGG BIRYANIS</h2>
+            </div>
+            <div class="menu-item">
+                <p>Egg Biryani</p>
+                <p class="cost">170/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Egg_Biryani" name="item">
+                        <label for="eb">Qty:</label>
+                        <input type="number" id="eb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>SP Egg Biryani</p>
+                <p class="cost">200/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="SP_Egg_Biryani" name="item">
+                        <label for="SP-eb">Qty:</label>
+                        <input type="number" id="SP-eb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+            <div class="menu-item">
+                <p>Egg Mughalai Biryani</p>
+                <p class="cost">220/-</p>
+                <div class="add-to-cart">
+                    <form action="/addtocart">
+                        <input type="hidden" value="'+user+'" name="user">
+                        <input type="hidden" value="Egg_Mughalai_Biryani" name="item">
+                        <label for="emb">Qty:</label>
+                        <input type="number" id="emb" class="qnty" name="quantity" min="0" value="0">
+                        <input type="submit" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <center>
+        <form action="/cart">
+            <input type="hidden" value="'+user+'" name="user">
+            <button type="submit" class="order" ><img class="orderimage" src="https://github.com/siva4452/VARMAFOODS/blob/main/images/5862ee767d90850fc3ce2909.png?raw=true" alt="img"></button>
+        </form>
+        </center>
+        <br>
+    </body>
+</html>
